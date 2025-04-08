@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNB Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <canvas id="geometric-bg" class="geometric-bg" aria-hidden="true"></canvas>
+    <header class="header">
+        <h1 class="header__title">BNB Solution</h1>
+        <nav class="nav">
+            <button class="nav__toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav__list">
+                <li><a href="#about" class="nav__link" data-lang="about">About Us</a></li>
+                <li><a href="#leadgen" class="nav__link" data-lang="leadgen">Lead Generation</a></li>
+                <li><a href="#services" class="nav__link" data-lang="services">Services</a></li>
+                <li><a href="#reviews" class="nav__link" data-lang="reviews">Reviews</a></li>
+                <li><a href="#vacancies" class="nav__link" data-lang="vacancies">Vacancies</a></li>
+                <li><a href="#contacts" class="nav__link" data-lang="contacts">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="uk">UA</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2 class="section__title" data-lang="hero-title">Welcome to BNB Solution</h2>
+            <p data-lang="hero-subtitle">Your partner in business growth</p>
+            <a href="#leadgen" class="btn"><i class="fas fa-arrow-right"></i> <span data-lang="get-started">Get Started</span></a>
+        </section>
+
+        <section id="services-intro">
+            <h2 class="section__title" data-lang="why-choose">Why Choose Us?</h2>
+            <p data-lang="why-choose-text">We are a team of professionals dedicated to providing top-tier business solutions through experience and innovation.</p>
+            <a href="#about" class="btn"><i class="fas fa-info-circle"></i> <span data-lang="learn-more">Learn More</span></a>
+        </section>
+
+        <section id="about">
+            <h2 class="section__title" data-lang="about">About Us</h2>
+            <p data-lang="about-text">We are a dynamic company focused on delivering innovative solutions to help businesses succeed using modern technology and creativity.</p>
+        </section>
+
+        <section id="leadgen">
+            <h2 class="section__title" data-lang="leadgen">Lead Generation</h2>
+            <p data-lang="leadgen-text">We specialize in tailored lead generation strategies, utilizing advanced tools and analytics to attract and convert potential customers.</p>
+            <ul class="list">
+                <li><i class="fas fa-bullhorn"></i> <span data-lang="targeted-advertising">Targeted Advertising</span></li>
+                <li><i class="fas fa-chart-pie"></i> <span data-lang="data-analysis">Data Analysis</span></li>
+                <li><i class="fas fa-users"></i> <span data-lang="audience-engagement">Audience Engagement</span></li>
+                <li><i class="fas fa-rocket"></i> <span data-lang="campaign-optimization">Campaign Optimization</span></li>
+            </ul>
+            <a href="#contacts" class="btn"><i class="fas fa-info-circle"></i> <span data-lang="learn-more">Learn More</span></a>
+        </section>
+
+        <section id="services">
+            <h2 class="section__title" data-lang="services">Services</h2>
+            <ul class="list">
+                <li><i class="fas fa-bullhorn"></i> <span data-lang="targeted-advertising">Targeted Advertising</span></li>
+                <li><i class="fas fa-chart-pie"></i> <span data-lang="data-analysis">Data Analysis</span></li>
+                <li><i class="fas fa-code"></i> <span data-lang="website-development">Website Development</span></li>
+                <li><i class="fas fa-mobile-alt"></i> <span data-lang="mobile-app-development">Mobile App Development</span></li>
+                <li><i class="fas fa-globe"></i> <span data-lang="social-media-management">Social Media Management</span></li>
+            </ul>
+        </section>
+
+        <section id="reviews">
+            <h2 class="section__title" data-lang="reviews">Reviews</h2>
+            <div class="reviews__carousel">
+                <div class="reviews__track">
+                    <div class="reviews__item" data-lang="review-1">
+                        <p>"Increased our sales by 30% in 3 months!"</p>
+                        <span>Viktor, TechCorp</span>
+                    </div>
+                    <div class="reviews__item" data-lang="review-2">
+                        <p>"Great service and support!"</p>
+                        <span>Oksana, GreenTech</span>
+                    </div>
+                    <div class="reviews__item" data-lang="review-3">
+                        <p>"Professional and detail-oriented."</p>
+                        <span>Andriy, Smart Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vacancies">
+            <h2 class="section__title" data-lang="vacancies">Vacancies</h2>
+            <p data-lang="vacancies-text">Join our team! Current openings:</p>
+            <ul class="list">
+                <li><i class="fas fa-comment"></i> <span data-lang="chat-support">Chat Support Specialist</span></li>
+                <li><i class="fas fa-headset"></i> <span data-lang="chat-moderator">Chat Moderator</span></li>
+                <li><i class="fas fa-robot"></i> <span data-lang="chatbot-developer">Chatbot Developer</span></li>
+            </ul>
+            <button class="btn open-vacancy-modal"><i class="fas fa-paper-plane"></i> <span data-lang="apply-now">Apply Now</span></button>
+        </section>
+
+        <section id="contacts">
+            <h2 class="section__title" data-lang="contacts">Contacts</h2>
+            <p data-lang="phone">Phone: <a href="tel:+380123456789">+380 (12) 345-67-89</a></p>
+            <p data-lang="email">Email: <a href="mailto:info@bnbsolution.com">info@bnbsolution.com</a></p>
+            <p data-lang="address">Address: Odesa, Imaginary St., 42</p>
+            <button class="btn open-modal"><i class="fas fa-envelope"></i> <span data-lang="contact-us">Contact Us</span></button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p data-lang="footer-rights">© 2025 BNB Solution. All rights reserved.</p>
+        <p data-lang="footer-dev">Developed by <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">YALOKGAR</a></p>
+    </footer>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">×</span>
+            <h3 data-lang="contact-us">Contact Us</h3>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name" data-lang="your-name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" data-lang="contact-phone">Contact Phone</label>
+                    <input type="tel" id="phone" name="phone" required pattern="\+380\d{9}">
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-check"></i> <span data-lang="submit">Submit</span></button>
+                <p id="form-message" class="form-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="vacancy-modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">×</span>
+            <h3 data-lang="apply-vacancy">Apply for a Vacancy</h3>
+            <form id="vacancy-form" class="contact-form">
+                <div class="form-group">
+                    <label for="vacancy-name" data-lang="your-name">Your Name</label>
+                    <input type="text" id="vacancy-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="vacancy-phone" data-lang="contact-phone">Contact Phone</label>
+                    <input type="tel" id="vacancy-phone" name="phone" required pattern="\+380\d{9}">
+                </div>
+                <div class="form-group">
+                    <label for="vacancy-position" data-lang="position">Position</label>
+                    <select id="vacancy-position" name="position" required>
+                        <option value="Chat Support Specialist" data-lang="chat-support">Chat Support Specialist</option>
+                        <option value="Chat Moderator" data-lang="chat-moderator">Chat Moderator</option>
+                        <option value="Chatbot Developer" data-lang="chatbot-developer">Chatbot Developer</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-check"></i> <span data-lang="submit">Submit</span></button>
+                <p id="vacancy-form-message" class="form-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
