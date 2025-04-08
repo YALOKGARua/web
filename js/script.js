@@ -133,16 +133,19 @@ function updateLanguage(lang) {
     }
 }
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-lang');
-        updateLanguage(lang);
-        localStorage.setItem('language', lang);
-    });
-});
+let currentLang = localStorage.getItem('language') || 'en';
+const langToggleBtn = document.getElementById('lang-toggle');
 
-const savedLang = localStorage.getItem('language') || 'en';
-updateLanguage(savedLang);
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'uk' : 'en';
+    langToggleBtn.textContent = currentLang === 'en' ? 'EN' : 'UA';
+    updateLanguage(currentLang);
+    localStorage.setItem('language', currentLang);
+}
+
+langToggleBtn.addEventListener('click', toggleLanguage);
+langToggleBtn.textContent = currentLang === 'en' ? 'EN' : 'UA';
+updateLanguage(currentLang);
 
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -185,7 +188,6 @@ Object.entries(modals).forEach(([id, selector]) => {
     const modal = document.getElementById(id);
     const openBtn = document.querySelector(selector);
     const closeBtn = modal.querySelector('.modal__close');
-
     openBtn?.addEventListener('click', () => modal.style.display = 'block');
     closeBtn?.addEventListener('click', () => modal.style.display = 'none');
     window.addEventListener('click', e => e.target === modal && (modal.style.display = 'none'));
@@ -193,15 +195,15 @@ Object.entries(modals).forEach(([id, selector]) => {
 
 const forms = {
     'contact-form': (form, name, phone, message) => {
-        if (name.length < 1 || name.length > 32) return { text: translations[savedLang]['name-error'], color: 'red' };
-        if (!/^\+380\d{9}$/.test(phone)) return { text: translations[savedLang]['phone-error'], color: 'red' };
-        return { text: translations[savedLang]['thank-you'], color: '#FFFFFF' };
+        if (name.length < 1 || name.length > 32) return { text: translations[currentLang]['name-error'], color: 'red' };
+        if (!/^\+380\d{9}$/.test(phone)) return { text: translations[currentLang]['phone-error'], color: 'red' };
+        return { text: translations[currentLang]['thank-you'], color: '#FFFFFF' };
     },
     'vacancy-form': (form, name, phone, message) => {
-        if (name.length < 1 || name.length > 32) return { text: translations[savedLang]['name-error'], color: 'red' };
-        if (!/^\+380\d{9}$/.test(phone)) return { text: translations[savedLang]['phone-error'], color: 'red' };
+        if (name.length < 1 || name.length > 32) return { text: translations[currentLang]['name-error'], color: 'red' };
+        if (!/^\+380\d{9}$/.test(phone)) return { text: translations[currentLang]['phone-error'], color: 'red' };
         const position = form.querySelector('#vacancy-position').value;
-        return { text: `${translations[savedLang]['thank-you-vacancy']}, ${name}! ${translations[savedLang]['application-submitted']} ${position} ${translations[savedLang]['has-been-submitted']}`, color: '#FFFFFF' };
+        return { text: `${translations[currentLang]['thank-you-vacancy']}, ${name}! ${translations[currentLang]['application-submitted']} ${position} ${translations[currentLang]['has-been-submitted']}`, color: '#FFFFFF' };
     }
 };
 
@@ -228,7 +230,7 @@ if (DOM.canvas) {
     DOM.canvas.width = window.innerWidth;
     DOM.canvas.height = window.innerHeight;
 
-    const particles = Array.from({ length: 300 }, () => ({
+    const particles = Array.from({ length: 100 }, () => ({
         x: Math.random() * DOM.canvas.width,
         y: Math.random() * DOM.canvas.height,
         size: Math.random() * 5 + 2,

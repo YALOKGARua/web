@@ -311,8 +311,6 @@ p {
     position: absolute;
     top: 10px;
     right: 50px;
-    display: flex;
-    gap: 5px;
     z-index: 101;
 }
 
@@ -324,17 +322,23 @@ p {
 }
 
 .lang-btn, .theme-btn {
-    background: var(--primary-gradient);
-    color: var(--white);
-    border: none;
+    background: linear-gradient(145deg, #3a5a6a, #1a2a3a);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1rem;
-    transition: var(--transition);
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
-.lang-btn:hover, .theme-btn:hover { transform: scale(1.1); }
+.lang-btn:hover, .theme-btn:hover {
+    background: linear-gradient(145deg, #4a6a88, #2a3a58);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
 
 @media (max-width: 768px) {
     .header__title { font-size: 2rem; }
@@ -356,7 +360,16 @@ p {
     p, .list li { font-size: 1.2rem; }
     .reviews__carousel { height: 180px; }
     main { padding: 15px; }
-    .lang-switcher { right: 60px; top: 5px; }
-    .theme-switcher { right: 100px; top: 5px; }
-    .lang-btn, .theme-btn { padding: 3px 8px; font-size: 0.9rem; }
+    .lang-switcher {
+        right: 40px;
+        top: 5px;
+    }
+    .theme-switcher {
+        right: 80px;
+        top: 5px;
+    }
+    .lang-btn, .theme-btn {
+        padding: 3px 8px;
+        font-size: 0.9rem;
+    }
 }
