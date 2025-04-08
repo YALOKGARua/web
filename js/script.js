@@ -227,7 +227,7 @@ if (DOM.canvas) {
     const ctx = DOM.canvas.getContext('2d');
     DOM.canvas.width = window.innerWidth;
     DOM.canvas.height = window.innerHeight;
-    
+
     const particles = Array.from({ length: 300 }, () => ({
         x: Math.random() * DOM.canvas.width,
         y: Math.random() * DOM.canvas.height,

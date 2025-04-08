@@ -15,6 +15,7 @@
     --text-color: #2F4858;
     --white: #000000;
     --highlight-color: #4A6A88;
+    --primary-gradient: linear-gradient(45deg, #4A6A88 0%, #FFFFFF 50%, #000000 100%);
 }
 
 * {
@@ -99,7 +100,7 @@ section.visible {
     display: none;
     background: none;
     border: none;
-    color: var(--white);
+    color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -114,7 +115,7 @@ section.visible {
 }
 
 .nav__link {
-    color: var(--white);
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.3rem;
@@ -137,6 +138,7 @@ section.visible {
     letter-spacing: 2px;
     margin-bottom: 24px;
     position: relative;
+    color: var(--text-color);
 }
 
 .section__title::after {
@@ -168,6 +170,7 @@ p {
     padding: 4px 8px;
     border-radius: 4px;
     transition: var(--transition);
+    color: var(--text-color);
 }
 
 .list li:hover {
@@ -225,7 +228,7 @@ p {
     align-items: center;
 }
 
-.reviews__item p { font-size: 1.2rem; margin-bottom: 10px; }
+.reviews__item p { font-size: 1.2rem; margin-bottom: 10px; color: var(--text-color); }
 .reviews__item span { font-size: 1rem; color: rgba(255, 255, 255, 0.8); }
 
 .modal {
@@ -255,7 +258,7 @@ p {
     right: 8px;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--white);
+    color: var(--text-color);
     transition: var(--transition);
 }
 
@@ -281,7 +284,7 @@ p {
     border-radius: 6px;
     font-size: 1.2rem;
     background: var(--dark-bg);
-    color: var(--white);
+    color: var(--text-color);
     transition: var(--transition);
 }
 
@@ -293,7 +296,7 @@ p {
 
 .footer {
     background: var(--dark-bg);
-    color: var(--white);
+    color: var(--text-color);
     padding: 16px 0;
     text-align: center;
     box-shadow: var(--shadow-light);
@@ -310,12 +313,14 @@ p {
     right: 50px;
     display: flex;
     gap: 5px;
+    z-index: 101;
 }
 
 .theme-switcher {
     position: absolute;
     top: 10px;
     right: 100px;
+    z-index: 101;
 }
 
 .lang-btn, .theme-btn {
