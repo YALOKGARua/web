@@ -12,7 +12,7 @@
 
 [data-theme="light"] {
     --dark-bg: linear-gradient(to bottom, #F5F6F5, #E0E1E0);
-    --text-color: #ffffff;
+    --text-color: #1A2A3A;
     --white: #1A2A3A;
     --highlight-color: #6A8AA8;
     --primary-gradient: linear-gradient(45deg, #6A8AA8 0%, #F5F6F5 50%, #1A2A3A 100%);
@@ -355,6 +355,42 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+.achievements__list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.achievement__item {
+    text-align: center;
+    background: var(--dark-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    min-width: 150px;
+    transition: var(--transition);
+}
+
+.achievement__item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-heavy);
+}
+
+.achievement__number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--highlight-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.achievement__item p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
 @media (max-width: 768px) {
     .header__title { font-size: 2rem; }
     .nav__toggle { display: block; position: absolute; right: 8px; top: 8px; }
@@ -378,4 +414,6 @@ p {
     .lang-switcher { right: 40px; top: 5px; }
     .theme-switcher { right: 80px; top: 5px; }
     .lang-btn, .theme-btn { padding: 3px 8px; font-size: 0.9rem; }
+    .achievement__number { font-size: 2rem; }
+    .achievement__item p { font-size: 1rem; }
 }

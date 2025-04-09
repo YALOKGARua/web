@@ -46,7 +46,8 @@ const translations = {
         "phone-error": "Phone must be in the format +380XXXXXXXXX",
         "thank-you": "Thank you! We will contact you soon.",
         "thank-you-vacancy": "Thank you", "application-submitted": "Your application for",
-        "has-been-submitted": "has been submitted."
+        "has-been-submitted": "has been submitted.",
+        achievements: "Our Achievements", clients: "Satisfied Clients", "lead-growth": "Lead Growth (%)", "years-experience": "Years of Experience"
     },
     uk: {
         about: "Про нас", leadgen: "Генерація лідів", services: "Послуги", reviews: "Відгуки",
@@ -73,7 +74,8 @@ const translations = {
         "phone-error": "Телефон має бути у форматі +380XXXXXXXXX",
         "thank-you": "Дякуємо! Ми зв’яжемося з вами незабаром.",
         "thank-you-vacancy": "Дякуємо", "application-submitted": "Ваша заявка на",
-        "has-been-submitted": "успішно подана."
+        "has-been-submitted": "успішно подана.",
+        achievements: "Наші досягнення", clients: "Задоволених клієнтів", "lead-growth": "Зростання лідів (%)", "years-experience": "Років досвіду"
     }
 };
 
@@ -177,6 +179,31 @@ Object.keys(forms).forEach(id => {
     });
 });
 
+function animateCounters() {
+    const counters = document.querySelectorAll('.achievement__number');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const updateCounter = () => {
+            const current = +counter.innerText;
+            const increment = target / 100;
+            if (current < target) {
+                counter.innerText = Math.ceil(current + increment);
+                setTimeout(updateCounter, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        const section = document.getElementById('achievements');
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                updateCounter();
+                observer.disconnect();
+            }
+        }, { threshold: 0.8 });
+        observer.observe(section);
+    });
+}
+
 if (DOM.canvas) {
     const ctx = DOM.canvas.getContext('2d');
     DOM.canvas.width = window.innerWidth;
@@ -261,4 +288,7 @@ window.addEventListener('scroll', () => {
     updateProgressBar();
     animateSections();
 });
-window.addEventListener('load', animateSections);
+window.addEventListener('load', () => {
+    animateSections();
+    animateCounters();
+});
