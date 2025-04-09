@@ -1,170 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BNB Solution – ваш партнер у розвитку бізнесу: генерація лідів, веб-розробка та інноваційні рішення для успіху.">
     <title>BNB Solution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <canvas id="geometric-bg" class="geometric-bg" aria-hidden="true"></canvas>
+    
     <header class="header">
         <h1 class="header__title">BNB Solution</h1>
         <nav class="nav">
-            <button class="nav__toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+            <button class="nav__toggle" aria-label="Відкрити меню навігації">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav__list">
-                <li><a href="#about" class="nav__link" data-lang="about">About Us</a></li>
-                <li><a href="#leadgen" class="nav__link" data-lang="leadgen">Lead Generation</a></li>
-                <li><a href="#services" class="nav__link" data-lang="services">Services</a></li>
-                <li><a href="#reviews" class="nav__link" data-lang="reviews">Reviews</a></li>
-                <li><a href="#vacancies" class="nav__link" data-lang="vacancies">Vacancies</a></li>
-                <li><a href="#contacts" class="nav__link" data-lang="contacts">Contacts</a></li>
+                <li><a href="#about" class="nav__link" data-lang="about">Про нас</a></li>
+                <li><a href="#leadgen" class="nav__link" data-lang="leadgen">Генерація лідів</a></li>
+                <li><a href="#services" class="nav__link" data-lang="services">Послуги</a></li>
+                <li><a href="#reviews" class="nav__link" data-lang="reviews">Відгуки</a></li>
+                <li><a href="#vacancies" class="nav__link" data-lang="vacancies">Вакансії</a></li>
+                <li><a href="#contacts" class="nav__link" data-lang="contacts">Контакти</a></li>
             </ul>
         </nav>
         <div class="lang-switcher">
-            <button class="lang-btn" id="lang-toggle">EN</button>
+            <button class="lang-btn" id="lang-toggle" aria-label="Перемкнути мову">UA</button>
         </div>
         <div class="theme-switcher">
-            <button class="theme-btn" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
+            <button class="theme-btn" onclick="toggleTheme()" aria-label="Перемкнути тему">
+                <i class="fas fa-adjust"></i>
+            </button>
         </div>
     </header>
 
     <main>
         <section id="hero">
-            <h2 class="section__title" data-lang="hero-title">Welcome to BNB Solution</h2>
-            <p data-lang="hero-subtitle">Your partner in business growth</p>
-            <a href="#leadgen" class="btn"><i class="fas fa-arrow-right"></i> <span data-lang="get-started">Get Started</span></a>
+            <h2 class="section__title" data-lang="hero-title">Ласкаво просимо до BNB Solution</h2>
+            <p data-lang="hero-subtitle">Ваш партнер у розвитку бізнесу</p>
+            <a href="#leadgen" class="btn">
+                <i class="fas fa-arrow-right"></i> <span data-lang="get-started">Розпочати</span>
+            </a>
         </section>
 
         <section id="services-intro">
-            <h2 class="section__title" data-lang="why-choose">Why Choose Us?</h2>
-            <p data-lang="why-choose-text">We are a team of professionals dedicated to providing top-tier business solutions through experience and innovation.</p>
-            <a href="#about" class="btn"><i class="fas fa-info-circle"></i> <span data-lang="learn-more">Learn More</span></a>
+            <h2 class="section__title" data-lang="why-choose">Чому обирають нас?</h2>
+            <p data-lang="why-choose-text">Ми – команда професіоналів, яка пропонує найкращі бізнес-рішення завдяки досвіду та інноваціям.</p>
+            <a href="#about" class="btn">
+                <i class="fas fa-info-circle"></i> <span data-lang="learn-more">Дізнатися більше</span>
+            </a>
         </section>
 
         <section id="about">
-            <h2 class="section__title" data-lang="about">About Us</h2>
-            <p data-lang="about-text">We are a dynamic company focused on delivering innovative solutions to help businesses succeed using modern technology and creativity.</p>
+            <h2 class="section__title" data-lang="about">Про нас</h2>
+            <p data-lang="about-text">Ми – динамічна компанія, яка створює інноваційні рішення для успіху бізнесу за допомогою сучасних технологій та креативності.</p>
         </section>
 
         <section id="leadgen">
-            <h2 class="section__title" data-lang="leadgen">Lead Generation</h2>
-            <p data-lang="leadgen-text">We specialize in tailored lead generation strategies, utilizing advanced tools and analytics to attract and convert potential customers.</p>
+            <h2 class="section__title" data-lang="leadgen">Генерація лідів</h2>
+            <p data-lang="leadgen-text">Спеціалізуємося на індивідуальних стратегіях генерації лідів із використанням передових інструментів та аналітики.</p>
             <ul class="list">
-                <li><i class="fas fa-bullhorn"></i> <span data-lang="targeted-advertising">Targeted Advertising</span></li>
-                <li><i class="fas fa-chart-pie"></i> <span data-lang="data-analysis">Data Analysis</span></li>
-                <li><i class="fas fa-users"></i> <span data-lang="audience-engagement">Audience Engagement</span></li>
-                <li><i class="fas fa-rocket"></i> <span data-lang="campaign-optimization">Campaign Optimization</span></li>
+                <li><i class="fas fa-bullhorn"></i> <span data-lang="targeted-advertising">Цільова реклама</span></li>
+                <li><i class="fas fa-chart-pie"></i> <span data-lang="data-analysis">Аналіз даних</span></li>
+                <li><i class="fas fa-users"></i> <span data-lang="audience-engagement">Взаємодія з аудиторією</span></li>
+                <li><i class="fas fa-rocket"></i> <span data-lang="campaign-optimization">Оптимізація кампаній</span></li>
             </ul>
-            <a href="#contacts" class="btn"><i class="fas fa-info-circle"></i> <span data-lang="learn-more">Learn More</span></a>
+            <a href="#contacts" class="btn">
+                <i class="fas fa-info-circle"></i> <span data-lang="learn-more">Дізнатися більше</span>
+            </a>
         </section>
 
         <section id="services">
-            <h2 class="section__title" data-lang="services">Services</h2>
+            <h2 class="section__title" data-lang="services">Послуги</h2>
             <ul class="list">
-                <li><i class="fas fa-bullhorn"></i> <span data-lang="targeted-advertising">Targeted Advertising</span></li>
-                <li><i class="fas fa-chart-pie"></i> <span data-lang="data-analysis">Data Analysis</span></li>
-                <li><i class="fas fa-code"></i> <span data-lang="website-development">Website Development</span></li>
-                <li><i class="fas fa-mobile-alt"></i> <span data-lang="mobile-app-development">Mobile App Development</span></li>
-                <li><i class="fas fa-globe"></i> <span data-lang="social-media-management">Social Media Management</span></li>
+                <li><i class="fas fa-bullhorn"></i> <span data-lang="targeted-advertising">Цільова реклама</span></li>
+                <li><i class="fas fa-chart-pie"></i> <span data-lang="data-analysis">Аналіз даних</span></li>
+                <li><i class="fas fa-code"></i> <span data-lang="website-development">Розробка вебсайтів</span></li>
+                <li><i class="fas fa-mobile-alt"></i> <span data-lang="mobile-app-development">Розробка мобільних додатків</span></li>
+                <li><i class="fas fa-globe"></i> <span data-lang="social-media-management">Управління соцмережами</span></li>
             </ul>
         </section>
 
         <section id="reviews">
-            <h2 class="section__title" data-lang="reviews">Reviews</h2>
+            <h2 class="section__title" data-lang="reviews">Відгуки</h2>
             <div class="reviews__carousel">
                 <div class="reviews__track">
-                    <div class="reviews__item" data-lang="review-1">
-                        <p>"Increased our sales by 30% in 3 months!"</p>
-                        <span>Viktor, TechCorp</span>
+                    <div class="reviews__item">
+                        <p data-lang="review-1">"Збільшили наші продажі на 30% за 3 місяці!"</p>
+                        <span>Віктор, TechCorp</span>
                     </div>
-                    <div class="reviews__item" data-lang="review-2">
-                        <p>"Great service and support!"</p>
-                        <span>Oksana, GreenTech</span>
+                    <div class="reviews__item">
+                        <p data-lang="review-2">"Чудовий сервіс та підтримка!"</p>
+                        <span>Оксана, GreenTech</span>
                     </div>
-                    <div class="reviews__item" data-lang="review-3">
-                        <p>"Professional and detail-oriented."</p>
-                        <span>Andriy, Smart Solutions</span>
+                    <div class="reviews__item">
+                        <p data-lang="review-3">"Професійний підхід та увага до деталей."</p>
+                        <span>Андрій, Smart Solutions</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="vacancies">
-            <h2 class="section__title" data-lang="vacancies">Vacancies</h2>
-            <p data-lang="vacancies-text">Join our team! Current openings:</p>
+            <h2 class="section__title" data-lang="vacancies">Вакансії</h2>
+            <p data-lang="vacancies-text">Приєднуйтесь до нас! Актуальні вакансії:</p>
             <ul class="list">
-                <li><i class="fas fa-comment"></i> <span data-lang="chat-support">Chat Support Specialist</span></li>
-                <li><i class="fas fa-headset"></i> <span data-lang="chat-moderator">Chat Moderator</span></li>
-                <li><i class="fas fa-robot"></i> <span data-lang="chatbot-developer">Chatbot Developer</span></li>
+                <li><i class="fas fa-comment"></i> <span data-lang="chat-support">Спеціаліст із підтримки в чаті</span></li>
+                <li><i class="fas fa-headset"></i> <span data-lang="chat-moderator">Модератор чату</span></li>
+                <li><i class="fas fa-robot"></i> <span data-lang="chatbot-developer">Розробник чат-ботів</span></li>
             </ul>
-            <button class="btn open-vacancy-modal"><i class="fas fa-paper-plane"></i> <span data-lang="apply-now">Apply Now</span></button>
+            <button class="btn open-vacancy-modal">
+                <i class="fas fa-paper-plane"></i> <span data-lang="apply-now">Подати заявку</span>
+            </button>
         </section>
 
         <section id="contacts">
-            <h2 class="section__title" data-lang="contacts">Contacts</h2>
+            <h2 class="section__title" data-lang="contacts">Контакти</h2>
             <p>Telegram: <a href="https://t.me/BNB_Solutions" target="_blank">@BNB_Solutions</a></p>
-            <p data-lang="phone">Phone: <a href="tel:+380506379849">+380 (50) 637-98-49</a></p>
-            <p data-lang="email">Email: <a href="mailto:bnbsolution1@gmail.com">bnbsolution1@gmail.com</a></p>
-            <p data-lang="address">Address: Odesa, Imaginary St., 42</p>
-            <button class="btn open-modal"><i class="fas fa-envelope"></i> <span data-lang="contact-us">Contact Us</span></button>
+            <p data-lang="phone">Телефон: <a href="tel:+380506379849">+380 (50) 637-98-49</a></p>
+            <p data-lang="email">Пошта: <a href="mailto:bnbsolution1@gmail.com">bnbsolution1@gmail.com</a></p>
+            <p data-lang="address">Адреса: Одеса, вул. Уявна, 42</p>
+            <button class="btn open-modal">
+                <i class="fas fa-envelope"></i> <span data-lang="contact-us">Зв’язатися з нами</span>
+            </button>
         </section>
     </main>
 
     <footer class="footer">
-        <p data-lang="footer-rights">© 2025 BNB Solution. All rights reserved.</p>
-        <p>Telegram Developer: <a href="https://t.me/YALOKGAR" target="_blank">@YALOKGAR</a></p>
-        <p data-lang="footer-dev">Developed by <a href="https://github.com/YALOKGARua" target="_blank" rel="noopener noreferrer">YALOKGAR</a></p>
+        <p data-lang="footer-rights">© 2025 BNB Solution. Усі права захищено.</p>
+        <p>Telegram: <a href="https://t.me/YALOKGAR" target="_blank">@YALOKGAR</a></p>
+        <p data-lang="footer-dev">Розроблено <a href="https://github.com/YALOKGARua" target="_blank" rel="noopener noreferrer">YALOKGAR</a></p>
     </footer>
 
     <div id="contact-modal" class="modal">
         <div class="modal__content">
-            <span class="modal__close">×</span>
-            <h3 data-lang="contact-us">Contact Us</h3>
+            <span class="modal__close" aria-label="Закрити модальне вікно">×</span>
+            <h3 data-lang="contact-us">Зв’язатися з нами</h3>
             <form id="contact-form" class="contact-form">
                 <div class="form-group">
-                    <label for="name" data-lang="your-name">Your Name</label>
+                    <label for="name" data-lang="your-name">Ваше ім’я</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone" data-lang="contact-phone">Contact Phone</label>
+                    <label for="phone" data-lang="contact-phone">Контактний телефон</label>
                     <input type="tel" id="phone" name="phone" required pattern="\+380\d{9}">
                 </div>
-                <button type="submit" class="btn"><i class="fas fa-check"></i> <span data-lang="submit">Submit</span></button>
-                <p id="form-message" class="form-message"></p>
+                <button type="submit" class="btn">
+                    <i class="fas fa-check"></i> <span data-lang="submit">Надіслати</span>
+                </button>
+                <p id="form-message"></p>
             </form>
         </div>
     </div>
 
     <div id="vacancy-modal" class="modal">
         <div class="modal__content">
-            <span class="modal__close">×</span>
-            <h3 data-lang="apply-vacancy">Apply for a Vacancy</h3>
+            <span class="modal__close" aria-label="Закрити модальне вікно">×</span>
+            <h3 data-lang="apply-vacancy">Подати заявку на вакансію</h3>
             <form id="vacancy-form" class="contact-form">
                 <div class="form-group">
-                    <label for="vacancy-name" data-lang="your-name">Your Name</label>
+                    <label for="vacancy-name" data-lang="your-name">Ваше ім’я</label>
                     <input type="text" id="vacancy-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="vacancy-phone" data-lang="contact-phone">Contact Phone</label>
+                    <label for="vacancy-phone" data-lang="contact-phone">Контактний телефон</label>
                     <input type="tel" id="vacancy-phone" name="phone" required pattern="\+380\d{9}">
                 </div>
                 <div class="form-group">
-                    <label for="vacancy-position" data-lang="position">Position</label>
+                    <label for="vacancy-position" data-lang="position">Посада</label>
                     <select id="vacancy-position" name="position" required>
-                        <option value="Chat Support Specialist" data-lang="chat-support">Chat Support Specialist</option>
-                        <option value="Chat Moderator" data-lang="chat-moderator">Chat Moderator</option>
-                        <option value="Chatbot Developer" data-lang="chatbot-developer">Chatbot Developer</option>
+                        <option value="Chat Support Specialist" data-lang="chat-support">Спеціаліст із підтримки</option>
+                        <option value="Chat Moderator" data-lang="chat-moderator">Модератор чату</option>
+                        <option value="Chatbot Developer" data-lang="chatbot-developer">Розробник чат-ботів</option>
                     </select>
                 </div>
-                <button type="submit" class="btn"><i class="fas fa-check"></i> <span data-lang="submit">Submit</span></button>
-                <p id="vacancy-form-message" class="form-message"></p>
+                <button type="submit" class="btn">
+                    <i class="fas fa-check"></i> <span data-lang="submit">Надіслати</span>
+                </button>
+                <p id="vacancy-form-message"></p>
             </form>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

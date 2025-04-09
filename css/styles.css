@@ -1,21 +1,21 @@
 :root {
-    --primary-gradient: linear-gradient(45deg, #2F4858 0%, #000000 50%, #FFFFFF 100%);
-    --section-gradient: linear-gradient(135deg, #000000 0%, #2F4858 50%, rgba(255, 255, 255, 0.1) 100%);
-    --dark-bg: linear-gradient(to bottom, #2F4858, #000000);
-    --text-color: #FFFFFF;
+    --primary-gradient: linear-gradient(45deg, #2F4858 0%, #1A2A3A 50%, #FFFFFF 100%);
+    --section-gradient: linear-gradient(135deg, #1A2A3A 0%, #2F4858 50%, rgba(255, 255, 255, 0.1) 100%);
+    --dark-bg: linear-gradient(to bottom, #2F4858, #1A2A3A);
+    --text-color: #F5F6F5;
     --white: #FFFFFF;
     --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.3);
     --shadow-heavy: 0 4px 10px rgba(0, 0, 0, 0.5);
-    --highlight-color: #2F4858;
+    --highlight-color: #4A6A88;
     --transition: all 0.3s ease;
 }
 
 [data-theme="light"] {
-    --dark-bg: linear-gradient(to bottom, #FFFFFF, #F0F0F0);
-    --text-color: #2F4858;
-    --white: #000000;
-    --highlight-color: #4A6A88;
-    --primary-gradient: linear-gradient(45deg, #4A6A88 0%, #FFFFFF 50%, #000000 100%);
+    --dark-bg: linear-gradient(to bottom, #F5F6F5, #E0E1E0);
+    --text-color: #ffffff;
+    --white: #1A2A3A;
+    --highlight-color: #6A8AA8;
+    --primary-gradient: linear-gradient(45deg, #6A8AA8 0%, #F5F6F5 50%, #1A2A3A 100%);
 }
 
 * {
@@ -26,7 +26,7 @@
 
 body {
     font-family: 'Montserrat', 'Arial', sans-serif;
-    background: #000000;
+    background: #1A2A3A;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
@@ -119,13 +119,13 @@ section.visible {
     font-weight: 600;
     font-size: 1.3rem;
     padding: 4px 8px;
-    transition: var(--transition);
     border-radius: 4px;
+    transition: var(--transition);
 }
 
 .nav__link:hover {
     color: var(--highlight-color);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .section__title {
@@ -195,8 +195,8 @@ p {
 }
 
 .btn:hover {
-    transform: scale(1.02) translateY(-1px);
-    box-shadow: 0 0 10px rgba(47, 72, 88, 0.8);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 0 12px rgba(74, 106, 136, 0.7);
 }
 
 .reviews__carousel {
@@ -209,7 +209,7 @@ p {
 .reviews__track {
     display: flex;
     width: 100%;
-    height: 50%;
+    height: 100%;
     transition: transform 0.5s ease;
 }
 
@@ -227,8 +227,16 @@ p {
     align-items: center;
 }
 
-.reviews__item p { font-size: 1.2rem; margin-bottom: 10px; color: var(--text-color); }
-.reviews__item span { font-size: 1rem; color: rgba(255, 255, 255, 0.8); }
+.reviews__item p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.reviews__item span {
+    font-size: 1rem;
+    color: rgba(245, 246, 245, 0.8);
+}
 
 .modal {
     display: none;
@@ -248,7 +256,7 @@ p {
     max-width: 350px;
     margin: 40px auto;
     box-shadow: var(--shadow-heavy);
-    border: 1px solid rgba(47, 72, 88, 0.3);
+    border: 1px solid rgba(74, 106, 136, 0.3);
 }
 
 .modal__close {
@@ -261,7 +269,9 @@ p {
     transition: var(--transition);
 }
 
-.modal__close:hover { color: var(--highlight-color); }
+.modal__close:hover {
+    color: var(--highlight-color);
+}
 
 .contact-form {
     display: grid;
@@ -291,6 +301,7 @@ p {
 .form-group select:focus {
     border-color: var(--highlight-color);
     outline: none;
+    box-shadow: 0 0 5px rgba(74, 106, 136, 0.5);
 }
 
 .footer {
@@ -305,37 +316,43 @@ p {
     margin: 0 auto;
 }
 
-.lang-switcher {
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    z-index: 101;
+.footer a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
+.footer a:hover {
+    color: #8AB8D8;
+}
+
+.lang-switcher,
 .theme-switcher {
     position: absolute;
     top: 10px;
-    right: 100px;
     z-index: 101;
 }
 
+.lang-switcher { right: 50px; }
+.theme-switcher { right: 100px; }
+
 .lang-btn, .theme-btn {
-    background: linear-gradient(145deg, #3a5a6a, #1a2a3a);
-    color: #ffffff;
+    background: linear-gradient(145deg, #3A5A6A, #1A2A3A);
+    color: #F5F6F5;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 15px;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
 }
 
 .lang-btn:hover, .theme-btn:hover {
-    background: linear-gradient(145deg, #4a6a88, #2a3a58);
+    background: linear-gradient(145deg, #6A8AA8, #2F4858);
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -358,16 +375,7 @@ p {
     p, .list li { font-size: 1.2rem; }
     .reviews__carousel { height: 180px; }
     main { padding: 15px; }
-    .lang-switcher {
-        right: 40px;
-        top: 5px;
-    }
-    .theme-switcher {
-        right: 80px;
-        top: 5px;
-    }
-    .lang-btn, .theme-btn {
-        padding: 3px 8px;
-        font-size: 0.9rem;
-    }
+    .lang-switcher { right: 40px; top: 5px; }
+    .theme-switcher { right: 80px; top: 5px; }
+    .lang-btn, .theme-btn { padding: 3px 8px; font-size: 0.9rem; }
 }
