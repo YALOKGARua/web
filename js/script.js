@@ -1,294 +1,295 @@
-const DOM = {
-    navToggle: document.querySelector('.nav__toggle'),
-    navList: document.querySelector('.nav__list'),
-    reviewsCarousel: document.querySelector('.reviews__carousel'),
-    reviewsTrack: document.querySelector('.reviews__track'),
-    reviewItems: document.querySelectorAll('.reviews__item'),
-    canvas: document.getElementById('geometric-bg'),
-    progressBar: document.createElement('div')
+const _q1w2 = {
+    _e3r4: document.querySelector('._p0o9i8__t3r2e1'),
+    _t5y6: document.querySelector('._p0o9i8__m2n1b0'),
+    _u7i8: document.querySelector('._x3c4v5__cycle'),
+    _o9p0: document.querySelector('._x3c4v5__path'),
+    _a1s2: document.querySelectorAll('._x3c4v5__node'),
+    _d3f4: document.getElementById('_z9q8w7'),
+    _g5h6: document.createElement('div')
 };
 
-document.querySelectorAll('.nav__link, .btn[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-DOM.navToggle?.addEventListener('click', () => DOM.navList.classList.toggle('active'));
-window.addEventListener('resize', debounce(() => {
-    if (window.innerWidth > 768) DOM.navList.classList.remove('active');
-}, 100));
-
-const translations = {
-    en: {
-        about: "About Us", leadgen: "Lead Generation", services: "Services", reviews: "Reviews",
-        vacancies: "Vacancies", contacts: "Contacts", "hero-title": "Welcome to BNB Solution",
-        "hero-subtitle": "Your partner in business growth", "get-started": "Get Started",
-        "why-choose": "Why Choose Us?", "why-choose-text": "We are a team of professionals dedicated to providing top-tier business solutions through experience and innovation.",
-        "learn-more": "Learn More", "about-text": "We are a dynamic company focused on delivering innovative solutions to help businesses succeed using modern technology and creativity.",
-        "leadgen-text": "We specialize in tailored lead generation strategies, utilizing advanced tools and analytics to attract and convert potential customers.",
-        "targeted-advertising": "Targeted Advertising", "data-analysis": "Data Analysis",
-        "audience-engagement": "Audience Engagement", "campaign-optimization": "Campaign Optimization",
-        "website-development": "Website Development", "mobile-app-development": "Mobile App Development",
-        "social-media-management": "Social Media Management", "review-1": "\"Increased our sales by 30% in 3 months!\"",
-        "review-2": "\"Great service and support!\"", "review-3": "\"Professional and detail-oriented.\"",
-        "vacancies-text": "Join our team! Current openings:", "chat-support": "Chat Support Specialist",
-        "chat-moderator": "Chat Moderator", "chatbot-developer": "Chatbot Developer", "apply-now": "Apply Now",
-        phone: "Phone: <a href=\"tel:+380506379849\">+380 (50) 637-98-49</a>",
-        email: "Email: <a href=\"mailto:bnbsolution1@gmail.com\">bnbsolution1@gmail.com</a>",
-        address: "Address: Odesa, Imaginary St., 42", "contact-us": "Contact Us",
-        "footer-rights": "© 2025 BNB Solution. All rights reserved.",
-        "footer-dev": "Developed by <a href=\"https://github.com/YALOKGARua\" target=\"_blank\" rel=\"noopener noreferrer\">YALOKGAR</a>",
-        "your-name": "Your Name", "contact-phone": "Contact Phone", submit: "Submit",
-        "apply-vacancy": "Apply for a Vacancy", position: "Position",
-        "name-error": "Name must be between 1 and 32 characters",
-        "phone-error": "Phone must be in the format +380XXXXXXXXX",
-        "thank-you": "Thank you! We will contact you soon.",
-        "thank-you-vacancy": "Thank you", "application-submitted": "Your application for",
-        "has-been-submitted": "has been submitted.",
-        achievements: "Our Achievements", clients: "Satisfied Clients", "lead-growth": "Lead Growth (%)", "years-experience": "Years of Experience"
-    },
-    uk: {
-        about: "Про нас", leadgen: "Генерація лідів", services: "Послуги", reviews: "Відгуки",
-        vacancies: "Вакансії", contacts: "Контакти", "hero-title": "Ласкаво просимо до BNB Solution",
-        "hero-subtitle": "Ваш партнер у розвитку бізнесу", "get-started": "Розпочати",
-        "why-choose": "Чому обирають нас?", "why-choose-text": "Ми – команда професіоналів, яка прагне надавати найкращі рішення для бізнесу завдяки досвіду та інноваціям.",
-        "learn-more": "Дізнатися більше", "about-text": "Ми – динамічна компанія, орієнтована на створення інноваційних рішень для успіху бізнесу з використанням сучасних технологій та креативності.",
-        "leadgen-text": "Ми спеціалізуємося на індивідуальних стратегіях генерації лідів, використовуючи передові інструменти та аналітику для залучення та конверсії потенційних клієнтів.",
-        "targeted-advertising": "Цільова реклама", "data-analysis": "Аналіз даних",
-        "audience-engagement": "Взаємодія з аудиторією", "campaign-optimization": "Оптимізація кампаній",
-        "website-development": "Розробка вебсайтів", "mobile-app-development": "Розробка мобільних додатків",
-        "social-media-management": "Управління соцмережами", "review-1": "\"Збільшили наші продажі на 30% за 3 місяці!\"",
-        "review-2": "\"Чудовий сервіс та підтримка!\"", "review-3": "\"Професійний підхід та увага до деталей.\"",
-        "vacancies-text": "Приєднуйтесь до нас! Актуальні вакансії:", "chat-support": "Спеціаліст із підтримки",
-        "chat-moderator": "Модератор чату", "chatbot-developer": "Розробник чат-ботів", "apply-now": "Подати заявку",
-        phone: "Телефон: <a href=\"tel:+380506379849\">+380 (50) 637-98-49</a>",
-        email: "Пошта: <a href=\"mailto:bnbsolution1@gmail.com\">bnbsolution1@gmail.com</a>",
-        address: "Адреса: Одеса, вул. Уявна, 42", "contact-us": "Зв’язатися з нами",
-        "footer-rights": "© 2025 BNB Solution. Усі права захищено.",
-        "footer-dev": "Розроблено <a href=\"https://github.com/YALOKGARua\" target=\"_blank\" rel=\"noopener noreferrer\">YALOKGAR</a>",
-        "your-name": "Ваше ім’я", "contact-phone": "Контактний телефон", submit: "Надіслати",
-        "apply-vacancy": "Подати заявку на вакансію", position: "Посада",
-        "name-error": "Ім’я має бути від 1 до 32 символів",
-        "phone-error": "Телефон має бути у форматі +380XXXXXXXXX",
-        "thank-you": "Дякуємо! Ми зв’яжемося з вами незабаром.",
-        "thank-you-vacancy": "Дякуємо", "application-submitted": "Ваша заявка на",
-        "has-been-submitted": "успішно подана.",
-        achievements: "Наші досягнення", clients: "Задоволених клієнтів", "lead-growth": "Зростання лідів (%)", "years-experience": "Років досвіду"
-    }
-};
-
-function updateLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-        const key = el.getAttribute('data-lang');
-        if (translations[lang][key]) el.innerHTML = translations[lang][key];
-    });
-    document.documentElement.lang = lang;
-}
-
-let currentLang = localStorage.getItem('language') || 'uk';
-const langToggle = document.getElementById('lang-toggle');
-
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'uk' : 'en';
-    langToggle.textContent = currentLang === 'en' ? 'EN' : 'UA';
-    updateLanguage(currentLang);
-    localStorage.setItem('language', currentLang);
-}
-
-langToggle.addEventListener('click', toggleLanguage);
-langToggle.textContent = currentLang === 'en' ? 'EN' : 'UA';
-updateLanguage(currentLang);
-
-function toggleTheme() {
-    const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-
-let currentReview = 0;
-if (DOM.reviewsCarousel && DOM.reviewsTrack && DOM.reviewItems.length) {
-    const updateCarousel = debounce(() => {
-        DOM.reviewsTrack.style.transform = `translateX(${-currentReview * DOM.reviewsCarousel.clientWidth}px)`;
-    }, 100);
-
-    const nextReview = () => {
-        currentReview = (currentReview + 1) % DOM.reviewItems.length;
-        updateCarousel();
-    };
-
-    DOM.reviewsTrack.addEventListener('click', () => {
-        nextReview();
-        clearInterval(autoSlide);
-        autoSlide = setInterval(nextReview, 5000);
-    });
-
-    let autoSlide = setInterval(nextReview, 3000);
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
-}
-
-const modals = {
-    'contact-modal': '.open-modal',
-    'vacancy-modal': '.open-vacancy-modal'
-};
-
-Object.entries(modals).forEach(([id, selector]) => {
-    const modal = document.getElementById(id);
-    const openBtn = document.querySelector(selector);
-    const closeBtn = modal.querySelector('.modal__close');
-    
-    openBtn?.addEventListener('click', () => modal.style.display = 'block');
-    closeBtn?.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', e => e.target === modal && (modal.style.display = 'none'));
-});
-
-const forms = {
-    'contact-form': (form, name, phone, message) => {
-        if (name.length < 1 || name.length > 32) return { text: translations[currentLang]['name-error'], color: 'red' };
-        if (!/^\+380\d{9}$/.test(phone)) return { text: translations[currentLang]['phone-error'], color: 'red' };
-        return { text: translations[currentLang]['thank-you'], color: '#F5F6F5' };
-    },
-    'vacancy-form': (form, name, phone, message) => {
-        if (name.length < 1 || name.length > 32) return { text: translations[currentLang]['name-error'], color: 'red' };
-        if (!/^\+380\d{9}$/.test(phone)) return { text: translations[currentLang]['phone-error'], color: 'red' };
-        const position = form.querySelector('#vacancy-position').value;
-        return { text: `${translations[currentLang]['thank-you-vacancy']}, ${name}! ${translations[currentLang]['application-submitted']} ${position} ${translations[currentLang]['has-been-submitted']}`, color: '#F5F6F5' };
-    }
-};
-
-Object.keys(forms).forEach(id => {
-    const form = document.getElementById(id);
-    form?.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = this.querySelector(`#${id.split('-')[0]}-name`).value.trim();
-        const phone = this.querySelector(`#${id.split('-')[0]}-phone`).value.trim();
-        const message = this.querySelector(`#${id}-message`) || this.querySelector('p:last-child');
-        const result = forms[id](this, name, phone, message);
-
-        message.textContent = result.text;
-        message.style.color = result.color;
-        if (result.color !== 'red') {
-            this.reset();
-            setTimeout(() => this.closest('.modal').style.display = 'none', 1500);
+document.querySelectorAll('._p0o9i8__link, ._b8n7m6[href^="#"]').forEach(_z8 => {
+    _z8.addEventListener('click', _x7 => {
+        _x7.preventDefault();
+        const _target = document.querySelector(_z8.getAttribute('href'));
+        if (_target) {
+            _target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-function animateCounters() {
-    const counters = document.querySelectorAll('.achievement__number');
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const updateCounter = () => {
-            const current = +counter.innerText;
-            const increment = target / 100;
-            if (current < target) {
-                counter.innerText = Math.ceil(current + increment);
-                setTimeout(updateCounter, 20);
+_q1w2._e3r4?.addEventListener('click', () => _q1w2._t5y6.classList.toggle('_act9'));
+window.addEventListener('resize', _k8j9(() => {
+    if (window.innerWidth > 768) _q1w2._t5y6.classList.remove('_act9');
+}, 100));
+
+const _m0n1 = {
+    en: {
+        r4t5y6: "About Us", f7g8h9: "Client Acquisition", j0k1l2: "Services", x3c4v5: "Reviews",
+        q6w7e8: "Vacancies", a9s0d1: "Contact", "r2e3w4-title": "Welcome to BNB Solution",
+        "r2e3w4-subtitle": "Your partner in business growth", "start-now": "Get Started",
+        "why-us": "Why Us?", "why-us-text": "We are a team of experts offering the best solutions for your business, relying on experience and innovation.",
+        "more-info": "Learn More", "r4t5y6-text": "We are a dynamic team creating innovative solutions for your business success using modern technology and creativity.",
+        "f7g8h9-text": "We focus on personalized client acquisition strategies, using advanced tools and analytics.",
+        ads: "Targeted Advertising", analytics: "Data Analysis", engage: "Audience Engagement",
+        optimize: "Campaign Optimization", "web-dev": "Website Development", "app-dev": "App Development",
+        social: "Social Media Management", "rev-1": "\"Increased our sales by 30% in 3 months!\"",
+        "rev-2": "\"Excellent service and support!\"", "rev-3": "\"Professionalism and attention to detail.\"",
+        "q6w7e8-text": "Join us! Open positions:", "chat-help": "Chat Support Specialist",
+        "chat-mod": "Chat Moderator", "bot-dev": "Chatbot Developer", apply: "Apply",
+        addr: "Address: Odesa, Imaginary St., 42",
+        mail: "Email: <a href=\"mailto:bnbsolution1@gmail.com\">bnbsolution1@gmail.com</a>",
+        tel: "Phone: <a href=\"tel:+380506379849\">+380 (50) 637-98-49</a>",
+        "reach-us": "Contact Us", rights: "© 2025 BNB Solution. All rights reserved.",
+        "dev-by": "Developed by <a href=\"https://github.com/YALOKGARua\" target=\"_blank\" rel=\"noopener noreferrer\">YALOKGAR</a>",
+        name: "Your Name", phone: "Phone Number", send: "Send", "apply-job": "Apply for a Position",
+        role: "Position", "name-err": "Name must be 1-32 characters",
+        "phone-err": "Phone must be in the format +380XXXXXXXXX", thanks: "Thank you! We will contact you soon.",
+        "thanks-job": "Thank you", "app-sent": "Your application for", "app-done": "has been submitted.",
+        i7u6y5: "Our Achievements", clients: "Satisfied Clients", potentials: "Client Growth (%)", experience: "Years of Experience"
+    },
+    uk: {
+        r4t5y6: "Про нас", f7g8h9: "Залучення клієнтів", j0k1l2: "Послуги", x3c4v5: "Відгуки",
+        q6w7e8: "Вакансії", a9s0d1: "Контакти", "r2e3w4-title": "Ласкаво просимо до BNB Solution",
+        "r2e3w4-subtitle": "Ваш партнер у розвитку бізнесу", "start-now": "Почати",
+        "why-us": "Чому ми?", "why-us-text": "Ми – команда експертів, яка пропонує найкращі рішення для вашого бізнесу, спираючись на досвід та інновації.",
+        "more-info": "Дізнатися більше", "r4t5y6-text": "Ми – динамічна команда, яка створює інноваційні рішення для успіху вашого бізнесу за допомогою сучасних технологій і креативності.",
+        "f7g8h9-text": "Ми зосереджуємося на персоналізованих стратегіях залучення клієнтів, використовуючи передові інструменти та аналітику.",
+        ads: "Цільова реклама", analytics: "Аналіз даних", engage: "Взаємодія з аудиторією",
+        optimize: "Оптимізація кампаній", "web-dev": "Розробка вебсайтів", "app-dev": "Розробка додатків",
+        social: "Управління соцмережами", "rev-1": "\"Підняли продажі на 30% за 3 місяці!\"",
+        "rev-2": "\"Чудовий сервіс та підтримка!\"", "rev-3": "\"Професіоналізм та увага до деталей.\"",
+        "q6w7e8-text": "Приєднуйся до нас! Відкриті вакансії:", "chat-help": "Спеціаліст підтримки",
+        "chat-mod": "Модератор чату", "bot-dev": "Розробник ботів", apply: "Подати заявку",
+        addr: "Адреса: Одеса, вул. Уявна, 42",
+        mail: "Електронна пошта: <a href=\"mailto:bnbsolution1@gmail.com\">bnbsolution1@gmail.com</a>",
+        tel: "Телефон: <a href=\"tel:+380506379849\">+380 (50) 637-98-49</a>",
+        "reach-us": "Зв'язатися", rights: "© 2025 BNB Solution. Усі права захищені.",
+        "dev-by": "Розроблено <a href=\"https://github.com/YALOKGARua\" target=\"_blank\" rel=\"noopener noreferrer\">YALOKGAR</a>",
+        name: "Ваше ім'я", phone: "Контактний телефон", send: "Відправити", "apply-job": "Заявка на вакансію",
+        role: "Вакансія", "name-err": "Ім'я має бути від 1 до 32 символів",
+        "phone-err": "Телефон має бути у форматі +380XXXXXXXXX", thanks: "Дякуємо! Ми зв'яжемося з вами.",
+        "thanks-job": "Дякуємо", "app-sent": "Ваша заявка на", "app-done": "подана.",
+        i7u6y5: "Наші досягнення", clients: "Задоволених клієнтів", potentials: "Зростання клієнтів (%)", experience: "Років досвіду"
+    }
+};
+
+function _b2v3(_c4) {
+    document.querySelectorAll('[data-_v1]').forEach(_d5 => {
+        const _e6 = _d5.getAttribute('data-_v1');
+        if (_m0n1[_c4][_e6]) _d5.innerHTML = _m0n1[_c4][_e6];
+    });
+    document.documentElement.lang = _c4;
+}
+
+let _f7g8 = localStorage.getItem('_l9k0') || 'uk';
+const _h1j2 = document.getElementById('_m4n3b2');
+
+function _i3k4() {
+    _f7g8 = _f7g8 === 'en' ? 'uk' : 'en';
+    _h1j2.textContent = _f7g8 === 'en' ? 'EN' : 'UA';
+    _b2v3(_f7g8);
+    localStorage.setItem('_l9k0', _f7g8);
+}
+
+_h1j2.addEventListener('click', _i3k4);
+_h1j2.textContent = _f7g8 === 'en' ? 'EN' : 'UA';
+_b2v3(_f7g8);
+
+function _z8x7c6() {
+    const _m5n6 = document.documentElement.getAttribute('data-_t7') === '_l8' ? '_d9' : '_l8';
+    document.documentElement.setAttribute('data-_t7', _m5n6);
+    localStorage.setItem('_t7', _m5n6);
+}
+
+const _o7p8 = localStorage.getItem('_t7') || '_d9';
+document.documentElement.setAttribute('data-_t7', _o7p8);
+
+let _q9r0 = 0;
+if (_q1w2._u7i8 && _q1w2._o9p0 && _q1w2._a1s2.length) {
+    const _s1t2 = _k8j9(() => {
+        _q1w2._o9p0.style.transform = `translateX(${_q9r0 * -_q1w2._u7i8.clientWidth}px)`;
+    }, 100);
+
+    const _u3v4 = () => {
+        _q9r0 = (_q9r0 + 1) % _q1w2._a1s2.length;
+        _s1t2();
+    };
+
+    _q1w2._o9p0.addEventListener('click', () => {
+        _u3v4();
+        clearInterval(_w5x6);
+        _w5x6 = setInterval(_u3v4, 5000);
+    });
+
+    let _w5x6 = setInterval(_u3v4, 3000);
+    window.addEventListener('resize', _s1t2);
+    _s1t2();
+}
+
+const _y7z8 = {
+    '_c8v7b6': '._a9s0d1-open',
+    '_q3w2e1': '._q6w7e8-open'
+};
+
+Object.entries(_y7z8).forEach(([_a9, _b0]) => {
+    const _c1 = document.getElementById(_a9);
+    const _d2 = document.querySelector(_b0);
+    const _e3 = _c1.querySelector('._m0n9b8__shut');
+    
+    _d2?.addEventListener('click', () => _c1.style.display = 'block');
+    _e3?.addEventListener('click', () => _c1.style.display = 'none');
+    window.addEventListener('click', _f4 => _f4.target === _c1 && (_c1.style.display = 'none'));
+});
+
+const _g5h6 = {
+    '_t5r4e3': (_i7, _j8, _k9, _l0) => {
+        if (_j8.length < 1 || _j8.length > 32) return { txt: _m0n1[_f7g8]['name-err'], clr: 'red' };
+        if (!/^\+380\d{9}$/.test(_k9)) return { txt: _m0n1[_f7g8]['phone-err'], clr: 'red' };
+        return { txt: _m0n1[_f7g8]['thanks'], clr: '#F5F6F5' };
+    },
+    '_y6u5t4': (_m1, _n2, _o3, _p4) => {
+        if (_n2.length < 1 || _n2.length > 32) return { txt: _m0n1[_f7g8]['name-err'], clr: 'red' };
+        if (!/^\+380\d{9}$/.test(_o3)) return { txt: _m0n1[_f7g8]['phone-err'], clr: 'red' };
+        const _q5 = _m1.querySelector('#_j4k3l2').value;
+        return { txt: `${_m0n1[_f7g8]['thanks-job']}, ${_n2}! ${_m0n1[_f7g8]['app-sent']} ${_q5} ${_m0n1[_f7g8]['app-done']}`, clr: '#F5F6F5' };
+    }
+};
+
+Object.keys(_g5h6).forEach(_r6 => {
+    const _s7 = document.getElementById(_r6);
+    _s7?.addEventListener('submit', function(_t8) {
+        _t8.preventDefault();
+        const _u9 = this.querySelector(`#${_r6.split('-')[0]}-name`).value.trim();
+        const _v0 = this.querySelector(`#${_r6.split('-')[0]}-phone`).value.trim();
+        const _w1 = this.querySelector(`#${_r6}-msg`) || this.querySelector('p:last-child');
+        const _x2 = _g5h6[_r6](this, _u9, _v0, _w1);
+
+        _w1.textContent = _x2.txt;
+        _w1.style.color = _x2.clr;
+        if (_x2.clr !== 'red') {
+            this.reset();
+            setTimeout(() => this.closest('._m0n9b8').style.display = 'none', 1500);
+        }
+    });
+});
+
+function _y3z4() {
+    const _a5 = document.querySelectorAll('._i7u6y5__num');
+    _a5.forEach(_b6 => {
+        const _c7 = +_b6.getAttribute('data-_t9');
+        const _d8 = () => {
+            const _e9 = +_b6.innerText;
+            const _f0 = _c7 / 100;
+            if (_e9 < _c7) {
+                _b6.innerText = Math.ceil(_e9 + _f0);
+                setTimeout(_d8, 20);
             } else {
-                counter.innerText = target;
+                _b6.innerText = _c7;
             }
         };
-        const section = document.getElementById('achievements');
-        const observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
-                updateCounter();
-                observer.disconnect();
+        const _g1 = document.getElementById('i7u6y5');
+        const _h2 = new IntersectionObserver(_i3 => {
+            if (_i3[0].isIntersecting) {
+                _d8();
+                _h2.disconnect();
             }
         }, { threshold: 0.8 });
-        observer.observe(section);
+        _h2.observe(_g1);
     });
 }
 
-if (DOM.canvas) {
-    const ctx = DOM.canvas.getContext('2d');
-    DOM.canvas.width = window.innerWidth;
-    DOM.canvas.height = window.innerHeight;
+if (_q1w2._d3f4) {
+    const _j4 = _q1w2._d3f4.getContext('2d');
+    _q1w2._d3f4.width = window.innerWidth;
+    _q1w2._d3f4.height = window.innerHeight;
 
-    const particles = Array.from({ length: 100 }, () => ({
-        x: Math.random() * DOM.canvas.width,
-        y: Math.random() * DOM.canvas.height,
-        size: Math.random() * 5 + 2,
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25,
-        opacity: Math.random() * 0.5 + 0.3
+    const _k5 = Array.from({ length: 100 }, () => ({
+        _x: Math.random() * _q1w2._d3f4.width,
+        _y: Math.random() * _q1w2._d3f4.height,
+        _sz: Math.random() * 5 + 2,
+        _sx: Math.random() * 0.5 - 0.25,
+        _sy: Math.random() * 0.5 - 0.25,
+        _op: Math.random() * 0.5 + 0.3
     }));
 
-    function animate() {
-        ctx.fillStyle = 'rgba(26, 42, 58, 0.1)';
-        ctx.fillRect(0, 0, DOM.canvas.width, DOM.canvas.height);
+    function _l6() {
+        _j4.fillStyle = 'rgba(26, 42, 58, 0.1)';
+        _j4.fillRect(0, 0, _q1w2._d3f4.width, _q1w2._d3f4.height);
 
-        particles.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
-            if (p.x > DOM.canvas.width || p.x < 0) p.speedX *= -1;
-            if (p.y > DOM.canvas.height || p.y < 0) p.speedY *= -1;
+        _k5.forEach(_m7 => {
+            _m7._x += _m7._sx;
+            _m7._y += _m7._sy;
+            if (_m7._x > _q1w2._d3f4.width || _m7._x < 0) _m7._sx *= -1;
+            if (_m7._y > _q1w2._d3f4.height || _m7._y < 0) _m7._sy *= -1;
 
-            ctx.fillStyle = `rgba(74, 106, 136, ${p.opacity})`;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
+            _j4.fillStyle = `rgba(74, 106, 136, ${_m7._op})`;
+            _j4.beginPath();
+            _j4.arc(_m7._x, _m7._y, _m7._sz, 0, Math.PI * 2);
+            _j4.fill();
         });
 
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 150) {
-                    ctx.strokeStyle = `rgba(74, 106, 136, ${1 - distance / 150})`;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
+        for (let _n8 = 0; _n8 < _k5.length; _n8++) {
+            for (let _o9 = _n8 + 1; _o9 < _k5.length; _o9++) {
+                const _p0 = _k5[_n8]._x - _k5[_o9]._x;
+                const _q1 = _k5[_n8]._y - _k5[_o9]._y;
+                const _r2 = Math.sqrt(_p0 * _p0 + _q1 * _q1);
+                if (_r2 < 150) {
+                    _j4.strokeStyle = `rgba(74, 106, 136, ${1 - _r2 / 150})`;
+                    _j4.beginPath();
+                    _j4.moveTo(_k5[_n8]._x, _k5[_n8]._y);
+                    _j4.lineTo(_k5[_o9]._x, _k5[_o9]._y);
+                    _j4.stroke();
                 }
             }
         }
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(_l6);
     }
 
-    animate();
-    window.addEventListener('resize', debounce(() => {
-        DOM.canvas.width = window.innerWidth;
-        DOM.canvas.height = window.innerHeight;
+    _l6();
+    window.addEventListener('resize', _k8j9(() => {
+        _q1w2._d3f4.width = window.innerWidth;
+        _q1w2._d3f4.height = window.innerHeight;
     }, 100));
 }
 
-DOM.progressBar.className = 'progress-bar';
-document.body.appendChild(DOM.progressBar);
+_q1w2._g5h6.className = '_z0x1';
+document.body.appendChild(_q1w2._g5h6);
 
-function updateProgressBar() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    DOM.progressBar.style.width = `${(scrollTop / docHeight) * 100}%`;
+function _s2t3() {
+    const _u4 = window.scrollY;
+    const _v5 = document.documentElement.scrollHeight - window.innerHeight;
+    _q1w2._g5h6.style.width = `${(_u4 / _v5) * 100}%`;
 }
 
-function animateSections() {
-    document.querySelectorAll('section').forEach(section => {
-        if (section.getBoundingClientRect().top < window.innerHeight * 0.8) {
-            section.classList.add('visible');
+function _w6x7() {
+    document.querySelectorAll('section').forEach(_y8 => {
+        if (_y8.getBoundingClientRect().top < window.innerHeight * 0.8) {
+            _y8.classList.add('_v9');
         }
     });
 }
 
-function debounce(func, wait) {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func(...args), wait);
+function _k8j9(_z0, _a1) {
+    let _b2;
+    return (..._c3) => {
+        clearTimeout(_b2);
+        _b2 = setTimeout(() => _z0(..._c3), _a1);
     };
 }
 
-window.addEventListener('scroll', () => {
-    updateProgressBar();
-    animateSections();
+document.addEventListener('DOMContentLoaded', () => {
+    _w6x7();
+    _y3z4();
 });
+
+window.addEventListener('scroll', () => {
+    _s2t3();
+    _w6x7();
+});
+
 window.addEventListener('load', () => {
-    animateSections();
-    animateCounters();
+    _w6x7();
+    _y3z4();
 });
