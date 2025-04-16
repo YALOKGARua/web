@@ -44,7 +44,7 @@
             <button class="_l8k7j6-btn" id="_m4n3b2" aria-label="Змінити мову">UA</button>
         </div>
         <div class="_h2g1f0">
-            <button class="_h2g1f0-btn" onclick="_z8x7c6()" aria-label="Змінити тему">
+            <button class="_h2g1f0-btn" id="_theme-toggle" aria-label="Змінити тему">
                 <i class="fas fa-adjust"></i>
             </button>
         </div>
@@ -164,24 +164,27 @@
         <p data-_v1="rights">© 2025 BNB Solution. Усі права захищені.</p>
         <p>Telegram: <a href="https://t.me/YALOKGAR" target="_blank">@YALOKGAR</a></p>
         <p data-_v1="dev-by">Розроблено <a href="https://github.com/YALOKGARua" target="_blank" rel="noopener noreferrer">YALOKGAR</a></p>
+        <p id="_visit-counter" data-_v1="visits"></p>
     </footer>
+
+    <button id="_scroll-top" class="_scroll-top" style="display: none;" aria-label="Прокрутити вгору">
+        <i class="fas fa-arrow-up"></i> <span data-_v1="scrollTop">Догори</span>
+    </button>
 
     <div id="_c8v7b6" class="_m0n9b8">
         <div class="_m0n9b8__core">
-            <span class="_m0n9b8__shut" aria-label="Закрити вікно">×</span>
-            <h3 data-_v1="reach-us">Зв'язатися</h3>
+            <span class="_m0n9b8__shut">×</span>
             <form id="_t5r4e3" class="_t5r4e3-form">
+                <h2 class="_s6d5f4__title" data-_v1="reach-us">Зв'язатися</h2>
                 <div class="_t5r4e3__grp">
-                    <label for="_n2m1k0" data-_v1="name">Ім'я</label>
-                    <input type="text" id="_n2m1k0" name="_n2m1k0" required>
+                    <label for="_t5r4e3-name" data-_v1="name">Ваше ім'я</label>
+                    <input type="text" id="_t5r4e3-name" required>
                 </div>
                 <div class="_t5r4e3__grp">
-                    <label for="_p7o6i5" data-_v1="phone">Телефон</label>
-                    <input type="tel" id="_p7o6i5" name="_p7o6i5" required pattern="\+380\d{9}">
+                    <label for="_t5r4e3-phone" data-_v1="phone">Контактний телефон</label>
+                    <input type="tel" id="_t5r4e3-phone" required>
                 </div>
-                <button type="submit" class="_b8n7m6">
-                    <i class="fas fa-check"></i> <span data-_v1="send">Відправити</span>
-                </button>
+                <button type="submit" class="_b8n7m6" data-_v1="send">Відправити</button>
                 <p id="_t5r4e3-msg"></p>
             </form>
         </div>
@@ -189,35 +192,31 @@
 
     <div id="_q3w2e1" class="_m0n9b8">
         <div class="_m0n9b8__core">
-            <span class="_m0n9b8__shut" aria-label="Закрити вікно">×</span>
-            <h3 data-_v1="apply-job">Заявка на вакансію</h3>
+            <span class="_m0n9b8__shut">×</span>
             <form id="_y6u5t4" class="_t5r4e3-form">
+                <h2 class="_s6d5f4__title" data-_v1="apply-job">Заявка на вакансію</h2>
                 <div class="_t5r4e3__grp">
-                    <label for="_z8x7c6" data-_v1="name">Ім'я</label>
-                    <input type="text" id="_z8x7c6" name="_z8x7c6" required>
+                    <label for="_y6u5t4-name" data-_v1="name">Ваше ім'я</label>
+                    <input type="text" id="_y6u5t4-name" required>
                 </div>
                 <div class="_t5r4e3__grp">
-                    <label for="_r1t0y9" data-_v1="phone">Телефон</label>
-                    <input type="tel" id="_r1t0y9" name="_r1t0y9" required pattern="\+380\d{9}">
+                    <label for="_y6u5t4-phone" data-_v1="phone">Контактний телефон</label>
+                    <input type="tel" id="_y6u5t4-phone" required>
                 </div>
                 <div class="_t5r4e3__grp">
                     <label for="_j4k3l2" data-_v1="role">Вакансія</label>
-                    <select id="_j4k3l2" name="_j4k3l2" required>
-                        <option value="Chat Support Specialist" data-_v1="chat-help">Спеціаліст підтримки</option>
-                        <option value="Chat Moderator" data-_v1="chat-mod">Модератор чату</option>
-                        <option value="Chatbot Developer" data-_v1="bot-dev">Розробник ботів</option>
+                    <select id="_j4k3l2" required>
+                        <option value="chat-help" data-_v1="chat-help">Спеціаліст чат-підтримки</option>
+                        <option value="chat-mod" data-_v1="chat-mod">Модератор чату</option>
+                        <option value="bot-dev" data-_v1="bot-dev">Розробник чат-ботів</option>
                     </select>
                 </div>
-                <button type="submit" class="_b8n7m6">
-                    <i class="fas fa-check"></i> <span data-_v1="send">Відправити</span>
-                </button>
+                <button type="submit" class="_b8n7m6" data-_v1="send">Відправити</button>
                 <p id="_y6u5t4-msg"></p>
             </form>
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="js/script.js" defer></script>
-    <script>(function(){function _x(){var _y=document.createElement('iframe');_y.height=1;_y.width=1;_y.style.position='absolute';_y.style.top=0;_y.style.left=0;_y.style.border='none';_y.style.visibility='hidden';document.body.appendChild(_y);var _z=_y.contentDocument||_y.contentWindow.document;if(_z){var _w=_z.createElement('script');_w.innerHTML="window.__CF$cv$params={r:'92db41803ded12ea',t:'MTc0NDIxNDgzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";_z.getElementsByTagName('head')[0].appendChild(_w);}}if(document.readyState!=='loading')_x();else document.addEventListener('DOMContentLoaded',_x);})();</script>
+    <script src="js/script.js"></script>
 </body>
 </html>
