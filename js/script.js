@@ -112,7 +112,7 @@ const _m0n1 = {
         apply: "Подати заявку",
         addr: "Адреса: Одеса, вул. Уявна, 42",
         mail: "Електронна пошта: <a href=\"mailto:bnbsolution1@gmail.com\">bnbsolution1@gmail.com</a>",
-        tel: "Телефон: <a href=\"tel:+380506379849\">+380 (50) 637-98-49</a>",
+        tel: "Телефон: <a href=\"tel:+380932469904\">+380 (93) 246-99-04</a>",
         "reach-us": "Зв'язатися",
         rights: "© 2025 BNB Solution. Усі права захищені.",
         "dev-by": "Розроблено <a href=\"https://github.com/YALOKGARua\" target=\"_blank\" rel=\"noopener noreferrer\">YALOKGAR</a>",
