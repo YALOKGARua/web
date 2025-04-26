@@ -1,14 +1,15 @@
 {
     "compilerOptions": {
         "target": "ES2017",
-        "module": "commonjs",
+        "module": "ESNext",
         "outDir": "./js",
         "rootDir": "./js",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": ["ES2017", "DOM"]
+        "lib": ["ES2017", "DOM"],
+        "moduleResolution": "node"
     },
     "include": ["js/**/*"],
     "exclude": ["node_modules"]

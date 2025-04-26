@@ -39,7 +39,7 @@ const _q1w2: Elements = {
 document.querySelectorAll('._p0o9i8__link, ._b8n7m6[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
         event.preventDefault();
-        const targetId = (link as HTMLAnchorElement).getAttribute('href')?.substring(1);
+        const targetId = link.getAttribute('href')?.substring(1);
         const target = targetId ? document.getElementById(targetId) : null;
         if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
@@ -132,9 +132,9 @@ const _m0n1: LanguagePack = {
         "rev-2": "\"Чудовий сервіс та підтримка!\"",
         "rev-3": "\"Професіоналізм та увага до деталей.\"",
         "q6w7e8-text": "Приєднуйся до нас! Відкриті вакансії:",
-        "chat-help": "Спеціаліст підтримки",
+        "chat-help": "Специалист чат-підтримки",
         "chat-mod": "Модератор чату",
-        "bot-dev": "Розробник ботів",
+        "bot-dev": "Розробник чат-ботів",
         apply: "Подати заявку",
         addr: "Адреса: Одеса, вул. Уявна, 42",
         mail: "Електронна пошта: <a href=\"mailto:bnbsolution1@gmail.com\">bnbsolution1@gmail.com</a>",
@@ -209,7 +209,7 @@ if (_q1w2._u7i8 && _q1w2._o9p0 && _q1w2._a1s2.length) {
         updateSliderPosition();
     };
 
-    _q1w2._o9p0.addEventListener('click', () => {
+    _q1w2._u7i8.addEventListener('click', () => {
         advanceSlider();
         clearInterval(sliderInterval);
         sliderInterval = setInterval(advanceSlider, 5000);
@@ -234,19 +234,19 @@ Object.entries(modals).forEach(([modalId, triggerClass]) => {
     const trigger = document.querySelector(triggerClass) as HTMLElement | null;
     const closeButton = modal?.querySelector('._m0n9b8__shut') as HTMLElement | null;
 
-    if (trigger && modal && modal instanceof HTMLElement) {
+    if (trigger && modal) {
         trigger.addEventListener('click', () => {
             modal.style.display = 'block';
         });
     }
 
-    if (closeButton && modal && modal instanceof HTMLElement) {
+    if (closeButton && modal) {
         closeButton.addEventListener('click', () => {
             modal.style.display = 'none';
         });
     }
 
-    if (modal && modal instanceof HTMLElement) {
+    if (modal) {
         window.addEventListener('click', event => {
             if (event.target === modal) {
                 modal.style.display = 'none';
@@ -281,8 +281,9 @@ const formValidations: FormValidation = {
         if (!/^\+380\d{9}$/.test(phone)) {
             return { txt: _m0n1[currentLang]['phone-err'], clr: 'red' };
         }
-        const role = (form.querySelector('#_j4k3l2') as HTMLSelectElement).value;
-        return { txt: `${_m0n1[currentLang]['thanks-job']}, ${name}! ${_m0n1[currentLang]['app-sent']} ${role} ${_m0n1[currentLang]['app-done']}`, clr: '#F5F6F5' };
+        const roleElement = form.querySelector('#_j4k3l2') as HTMLSelectElement;
+        const role = roleElement?.value || '';
+        return { txt: `${_m0n1[currentLang]['thanks-job']}, ${name}! ${_m0n1[currentLang]['app-sent']} ${_m0n1[currentLang][role]} ${_m0n1[currentLang]['app-done']}`, clr: '#F5F6F5' };
     }
 };
 
@@ -292,7 +293,7 @@ Object.keys(formValidations).forEach(formId => {
         event.preventDefault();
         const nameInput = this.querySelector(`#${formId}-name`) as HTMLInputElement;
         const phoneInput = this.querySelector(`#${formId}-phone`) as HTMLInputElement;
-        const msgElement = this.querySelector(`#${formId}-msg`) || this.querySelector('p:last-child') as HTMLElement;
+        const msgElement = this.querySelector(`#${formId}-msg`) as HTMLElement;
 
         const name = nameInput.value.trim();
         const phone = phoneInput.value.trim();
@@ -304,7 +305,7 @@ Object.keys(formValidations).forEach(formId => {
             this.reset();
             setTimeout(() => {
                 const modal = this.closest('._m0n9b8');
-                if (modal instanceof HTMLElement) {
+                if (modal) {
                     modal.style.display = 'none';
                 }
             }, 1500);
@@ -313,7 +314,7 @@ Object.keys(formValidations).forEach(formId => {
 });
 
 function animateCounters(): void {
-    const counters = document.querySelectorAll('._i7u6y5__num') as NodeListOf<HTMLElement>;
+    const counters = document.querySelectorAll('._i7u6y5__num');
     counters.forEach(counter => {
         const target = Number(counter.getAttribute('data-_t9')) || 0;
         const updateCounter = () => {
@@ -341,13 +342,13 @@ function animateCounters(): void {
 
 if (_q1w2._d3f4) {
     const ctx = _q1w2._d3f4.getContext('2d');
-    if (ctx && _q1w2._d3f4 instanceof HTMLCanvasElement) {
+    if (ctx && _q1w2._d3f4) {
         _q1w2._d3f4.width = window.innerWidth;
         _q1w2._d3f4.height = window.innerHeight;
 
         const particles: Particle[] = Array.from({ length: 100 }, () => ({
-            _x: Math.random() * (_q1w2._d3f4?.width || window.innerWidth),
-            _y: Math.random() * (_q1w2._d3f4?.height || window.innerHeight),
+            _x: Math.random() * _q1w2._d3f4!.width,
+            _y: Math.random() * _q1w2._d3f4!.height,
             _sz: Math.random() * 5 + 2,
             _sx: Math.random() * 0.5 - 0.25,
             _sy: Math.random() * 0.5 - 0.25,
@@ -355,15 +356,15 @@ if (_q1w2._d3f4) {
         }));
 
         function animateParticles(): void {
-            if (!ctx || !_q1w2._d3f4 || !(_q1w2._d3f4 instanceof HTMLCanvasElement)) return;
+            if (!ctx || !_q1w2._d3f4) return;
             ctx.fillStyle = 'rgba(26, 42, 58, 0.1)';
             ctx.fillRect(0, 0, _q1w2._d3f4.width, _q1w2._d3f4.height);
 
             particles.forEach(particle => {
                 particle._x += particle._sx;
                 particle._y += particle._sy;
-                if (_q1w2._d3f4 && (particle._x > _q1w2._d3f4.width || particle._x < 0)) particle._sx *= -1;
-                if (_q1w2._d3f4 && (particle._y > _q1w2._d3f4.height || particle._y < 0)) particle._sy *= -1;
+                if (particle._x > _q1w2._d3f4!.width || particle._x < 0) particle._sx *= -1;
+                if (particle._y > _q1w2._d3f4!.height || particle._y < 0) particle._sy *= -1;
 
                 ctx.fillStyle = `rgba(74, 106, 136, ${particle._op})`;
                 ctx.beginPath();
@@ -391,14 +392,12 @@ if (_q1w2._d3f4) {
 
         animateParticles();
         window.addEventListener('resize', debounce(() => {
-            if (_q1w2._d3f4 && _q1w2._d3f4 instanceof HTMLCanvasElement) {
+            if (_q1w2._d3f4) {
                 _q1w2._d3f4.width = window.innerWidth;
                 _q1w2._d3f4.height = window.innerHeight;
                 particles.forEach(particle => {
-                    if (_q1w2._d3f4) {
-                        particle._x = Math.random() * _q1w2._d3f4.width;
-                        particle._y = Math.random() * _q1w2._d3f4.height;
-                    }
+                    particle._x = Math.random() * _q1w2._d3f4!.width;
+                    particle._y = Math.random() * _q1w2._d3f4!.height;
                 });
             }
         }, 100));
@@ -411,7 +410,7 @@ document.body.appendChild(_q1w2._g5h6);
 function updateScrollProgress(): void {
     const scrollPosition = window.scrollY;
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    _q1w2._g5h6.style.width = `${(scrollPosition / totalHeight) * 100}%`;
+    _q1w2._g5h6.style.width = `${totalHeight > 0 ? (scrollPosition / totalHeight) * 100 : 0}%`;
     const scrollTopButton = document.getElementById('_scroll-top');
     if (scrollTopButton) scrollTopButton.style.display = scrollPosition > 300 ? 'block' : 'none';
 }
