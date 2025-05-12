@@ -1,16 +1,20 @@
 {
     "compilerOptions": {
-        "target": "ES2017",
-        "module": "ESNext",
-        "outDir": "./js",
-        "rootDir": "./js",
+        "target": "ES2020",
+        "module": "ES2020",
+        "outDir": "./dist/js",
+        "rootDir": "./src/ts",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": ["ES2017", "DOM"],
-        "moduleResolution": "node"
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
     },
-    "include": ["js/**/*"],
-    "exclude": ["node_modules"]
+    "include": ["src/ts/**/*"],
+    "exclude": ["node_modules", "dist"]
 }

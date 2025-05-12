@@ -1,15 +1,23 @@
 {
-    "name": "web-project",
+    "name": "bnb-solution-website",
     "version": "1.0.0",
     "description": "BNB Solution website with TypeScript",
-    "main": "js/script.js",
+    "main": "dist/js/main.js",
     "scripts": {
         "build": "tsc",
-        "watch": "tsc --watch"
+        "watch": "tsc --watch",
+        "dev": "tsc --watch & live-server --port=3000",
+        "lint": "eslint src/**/*.ts",
+        "format": "prettier --write src/**/*.ts"
     },
     "author": "YALOKGAR",
     "license": "ISC",
     "devDependencies": {
-        "typescript": "^5.5.4"
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "eslint": "^8.56.0",
+        "live-server": "^1.2.2",
+        "prettier": "^3.2.5",
+        "typescript": "^5.3.3"
     }
 }
